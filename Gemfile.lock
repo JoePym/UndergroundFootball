@@ -33,8 +33,12 @@ GEM
     authlogic (3.1.0)
       activerecord (>= 3.0.7)
       activerecord (>= 3.0.7)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
-    cocaine (0.2.0)
+    devise (1.4.9)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
     erubis (2.7.0)
     haml (3.1.3)
     hike (1.2.1)
@@ -51,13 +55,9 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.3)
+    mysql2 (0.3.7)
     nokogiri (1.5.0)
-    paperclip (2.4.5)
-      activerecord (>= 2.3.0)
-      activesupport (>= 2.3.2)
-      cocaine (>= 0.0.2)
-      mime-types
-    pg (0.11.0)
+    orm_adapter (0.0.5)
     polyglot (0.3.3)
     rack (1.3.5)
     rack-cache (1.1)
@@ -102,18 +102,20 @@ GEM
       kgio (~> 2.4)
       rack
       raindrops (~> 0.6)
+    warden (1.0.6)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   authlogic
+  devise
   haml
   hpricot
   jquery-rails
+  mysql2
   nokogiri
-  paperclip
-  pg
   rails
   sass
   unicorn

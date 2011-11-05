@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118190325) do
+ActiveRecord::Schema.define(:version => 20111105135235) do
 
   create_table "actions", :force => true do |t|
     t.text    "name"
@@ -29,13 +30,20 @@ ActiveRecord::Schema.define(:version => 20110118190325) do
     t.integer "action_id"
   end
 
+  create_table "dungeons", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "games", :force => true do |t|
     t.integer  "home_rerolls"
     t.integer  "away_rerolls"
     t.integer  "home_team_id"
     t.integer  "away_team_id"
-    t.integer  "home_fame"
-    t.integer  "away_fame"
+    t.integer  "home_fans"
+    t.integer  "away_fans"
     t.integer  "home_apothecaries"
     t.integer  "away_apothecaries"
     t.datetime "created_at"
@@ -52,10 +60,10 @@ ActiveRecord::Schema.define(:version => 20110118190325) do
     t.text     "injuries"
     t.string   "name"
     t.string   "position"
-    t.integer  "team_no"
+    t.integer  "team_id"
+    t.integer  "fumbbl_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "team_id"
   end
 
   create_table "statuses", :force => true do |t|
@@ -81,5 +89,25 @@ ActiveRecord::Schema.define(:version => 20110118190325) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "users", :force => true do |t|
+    t.string   "email",                                 :default => "", :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.integer  "fumbbl_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

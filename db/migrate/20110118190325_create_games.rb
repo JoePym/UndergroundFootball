@@ -53,8 +53,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :action_id
     end
       
-    
-    add_column :players, :team_id , :integer
+
   end
 
   def self.down

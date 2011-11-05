@@ -2,11 +2,13 @@ source 'http://rubygems.org'
 
 gem 'rails'
 gem 'sass'
-gem 'pg'
+gem 'mysql2'
 gem 'authlogic'
 gem 'haml'
 gem 'hpricot'
-gem 'paperclip'
+
 gem 'unicorn'
 gem 'nokogiri'
 gem 'jquery-rails'
+
+gem 'devise'
