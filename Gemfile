@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
+gem 'rails'
 gem 'sass'
 gem 'pg'
 gem 'authlogic'
@@ -9,3 +9,4 @@ gem 'hpricot'
 gem 'paperclip'
 gem 'unicorn'
 gem 'nokogiri'
+gem 'jquery-rails'

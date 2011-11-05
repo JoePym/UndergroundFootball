@@ -1,6 +1,6 @@
 # Be sure to restart your server when you modify this file.
 
-Dungeonbowl::Application.config.session_store :cookie_store, :key => '_dungeonbowl_session'
+Dungeonbowl::Application.config.session_store :cookie_store, key: '_dungeonbowl_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
