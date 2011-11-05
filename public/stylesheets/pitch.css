@@ -1,0 +1,22 @@
+#pitch .cell {
+  width: 40px;
+  height: 40px;
+  background-color: green;
+  float: left; }
+#pitch .cell.leftBackline {
+  border-right: 2px solid white;
+  clear: left; }
+#pitch .cell.rightBackline {
+  border-left: 2px solid white; }
+#pitch .cell.los.left {
+  border-right: 1px solid white; }
+#pitch .cell.los.right {
+  border-left: 1px solid white; }
+#pitch .cell.sideline {
+  border-bottom: 1px dashed white; }
+#pitch .cell.sideline.rightBackline {
+  border-bottom: 1px solid green; }
+#pitch .cell.sideline.leftBackline {
+  border-bottom: 1px solid green; }
+#pitch .cell:hover {
+  background-color: blue; }

@@ -1,0 +1,8 @@
+= form_for Game.new do |f|
+  = text_field_tag :home_team_url
+  = text_field_tag :away_team_url
+  = f.submit
+  
+%h2 Games in Progress
+- @games.each do |game|
+  = link_to "#{game.home_team.name} VS #{game.away_team.name}", game_path(game)

@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: dungeonbowl_dev
+test:
+  adapter: postgresql
+  database: dungeonbowl_test
+

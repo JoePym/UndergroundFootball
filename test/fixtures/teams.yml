@@ -1,0 +1,18 @@
+- 
+  game_id: 1
+  fumbbl_id: 
+  name: Test team 1
+  rerolls: 2
+  fan_factor: 9
+  assistant_coaches: 2
+  cheerleaders: 2
+  apothecary: true
+- 
+  game_id: 1
+  fumbbl_id: 
+  name: Test team 2
+  rerolls: 2
+  fan_factor: 9
+  assistant_coaches: 2
+  cheerleaders: 2
+  apothecary: true

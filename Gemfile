@@ -1,0 +1,11 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.3'
+gem 'sass'
+gem 'pg'
+gem 'authlogic'
+gem 'haml'
+gem 'hpricot'
+gem 'paperclip'
+gem 'unicorn'
+gem 'nokogiri'

@@ -1,0 +1,10 @@
+#pitch
+  - 15.times do |row_index|
+    .cell.leftBackline{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+    - 11.times do
+      .cell{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+    .cell.los.left{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+    .cell.los.right{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+    - 11.times do
+      .cell{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+    .cell.rightBackline{:class => "#{'sideline' if [3,10].include?(row_index)}"}
