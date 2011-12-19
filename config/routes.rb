@@ -1,5 +1,10 @@
 Dungeonbowl::Application.routes.draw do
   devise_for :users
+  
+  resource :dungeons
+  resource :teams
+  
+  root :to => "dungeon#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -2,7 +2,7 @@ class Team < ActiveRecord::Base
   has_many :players
   belongs_to :game
   has_many :actions
-  
+  has_one :dungeon
  
   def player_ids
     Game.connection.select_values("select id from players where team_id = #{self.id}")

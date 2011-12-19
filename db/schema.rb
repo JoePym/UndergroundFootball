@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20111105135235) do
   end
 
   create_table "dungeons", :force => true do |t|
-    t.integer  "user_id"
+    t.integer  "team_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20111105135235) do
     t.integer  "assistant_coaches"
     t.integer  "cheerleaders"
     t.boolean  "apothecary"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

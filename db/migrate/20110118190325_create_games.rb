@@ -33,6 +33,7 @@ class CreateGames < ActiveRecord::Migration
       t.integer :assistant_coaches
       t.integer :cheerleaders
       t.boolean :apothecary
+      t.integer :user_id
       t.timestamps
     end
     
