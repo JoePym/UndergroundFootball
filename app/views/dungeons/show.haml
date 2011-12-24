@@ -1,0 +1,6 @@
+.dungeon
+  - @dungeon.tiles.each do |t|
+    - if t.tileset.stub?
+      .stub.tile{:style => "top: #{t.y*32}px; left: #{t.x*32}px"}
+    - else
+      .tile{:style => "top: #{t.y*32}px; left: #{t.x*32}px"}

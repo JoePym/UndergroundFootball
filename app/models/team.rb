@@ -1,8 +1,14 @@
 class Team < ActiveRecord::Base
-  has_many :players
+  has_many :players, :dependent => :destroy
   belongs_to :game
   has_many :actions
-  has_one :dungeon
+  has_one :dungeon, :dependent => :destroy
+  
+  after_create :create_dungeon
+  
+  def create_dungeon
+    Dungeon.create(:team_id => self.id, :name => "Home O' Mork")
+  end
  
   def player_ids
     Game.connection.select_values("select id from players where team_id = #{self.id}")
@@ -16,19 +22,57 @@ class Team < ActiveRecord::Base
     self.game.opposing_team(self)
   end
   
-  # def self.import(team_id)
-  #   t = Team.find_or_create_by_fumbbl_id(team_id)
-  #   doc = Nokogiri::XML(open("http://fumbbl.com/xml:team?id=#{team_id}"))
-  #   t.name = doc.xpath('//team/name').children.to_s
-  #   t.rerolls = doc.xpath('//team/reRolls').children.to_s
-  #   t.fan_factor = doc.xpath('//team/fanFactor').children.to_s
-  #   t.apothecary = doc.xpath('//team/apothecaries').children.to_s != "0"
-  #   t.assistant_coaches = doc.xpath('//team/assistantCoaches').children.to_s
-  #   t.cheerleaders = doc.xpath('//team/cheerleaders').children.to_s
-  #   t.save!
-  #   doc.xpath('//player').each do |player_stats|
-  #     p = team.players.new()
-  #     p.name = node.xpath("name").children.to_s
-  #     p
-  # end
+  def race
+    case race_id
+    when 41 
+      "Amazon"
+    when 42 
+      "Chaos"
+    when 43
+      "Chaos Dwarf"
+    when 64 
+      "Chaos Pact"
+    when 44 
+      "Dark Elf"
+    when 45 
+      "Dwarf"
+    when 46 
+      "Elf"
+    when 47 
+      "Goblin"
+    when 48 
+      "Halfling"
+    when 49 
+      "High Elf"
+    when 50 
+      "Human"
+    when 51 
+      "Khemri"
+    when 52 
+      "Lizardman"
+    when 53 
+      "Necromantic"
+    when 54 
+      "Norse"
+    when 55 
+      "Nurgle"
+    when 56 
+      "Ogre"
+    when 57 
+      "Orc"
+    when 58 
+      "Skaven"
+    when 65 
+      "Slann"
+    when 59 
+      "Undead"
+    when 66 
+      "Underworld"
+    when 60 
+      "Vampire"
+    when 61 
+      "Wood Elf"
+    end
+  end
+ 
 end

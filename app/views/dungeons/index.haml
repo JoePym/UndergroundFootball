@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Name
+    %th Race
+    %th Actions
+- current_user.teams.each do |team|
+  %tr
+    %td= team.name
+    %td= team.race
+    %td= link_to "Dungeon", dungeons_path(team.dungeon)

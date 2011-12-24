@@ -1,0 +1,13 @@
+%table
+  %tr
+    %th Name
+    %th Race
+    %th Actions
+- current_user.teams.each do |team|
+  %tr
+    %td= team.name
+    %td= team.race
+    %td= link_to edit_team_path(team)
+    %td= link_to team_path(team, :method => "delete")
+    
+= link_to "New team", new_team_path

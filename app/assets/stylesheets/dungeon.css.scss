@@ -1,0 +1,16 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+.dungeon{
+  position: relative;
+  .tile{
+    height: 32px;
+    width: 32px;
+    position: absolute;
+    background: green;
+  }
+  .tile.stub{
+    background: black;
+  }
+}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111105135235) do
+ActiveRecord::Schema.define(:version => 20111223200907) do
 
   create_table "actions", :force => true do |t|
     t.text    "name"
@@ -87,6 +87,25 @@ ActiveRecord::Schema.define(:version => 20111105135235) do
     t.integer  "cheerleaders"
     t.boolean  "apothecary"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "race_id"
+  end
+
+  create_table "tiles", :force => true do |t|
+    t.integer  "tileset_id"
+    t.integer  "x"
+    t.integer  "y"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tilesets", :force => true do |t|
+    t.integer  "dungeon_id"
+    t.string   "name"
+    t.text     "description"
+    t.string   "tile_type"
+    t.boolean  "stub",        :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

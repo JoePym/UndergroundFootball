@@ -6,7 +6,7 @@ gem 'mysql2'
 gem 'authlogic'
 gem 'haml'
 gem 'hpricot'
-
+gem 'formtastic'
 gem 'unicorn'
 gem 'nokogiri'
 gem 'jquery-rails'
