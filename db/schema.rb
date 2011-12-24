@@ -105,7 +105,6 @@ ActiveRecord::Schema.define(:version => 20111223200907) do
     t.string   "name"
     t.text     "description"
     t.string   "tile_type"
-    t.boolean  "stub",        :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

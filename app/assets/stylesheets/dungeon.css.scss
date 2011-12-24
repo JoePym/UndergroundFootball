@@ -4,13 +4,11 @@
 */
 .dungeon{
   position: relative;
+  background: black;
   .tile{
     height: 32px;
     width: 32px;
     position: absolute;
     background: green;
-  }
-  .tile.stub{
-    background: black;
   }
 }

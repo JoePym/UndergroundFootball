@@ -5,7 +5,6 @@ class CreateTilesets < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.string :tile_type
-      t.boolean :stub, :default => false, :null => false
       t.timestamps
     end
   end
