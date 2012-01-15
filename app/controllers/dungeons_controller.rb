@@ -7,6 +7,8 @@ class DungeonsController < ApplicationController
   
   def show
     @dungeon = current_user.teams.first.dungeon
+    @team = current_user.teams.first
   end
+  
   
 end

@@ -1,4 +1,4 @@
-class Player < ActiveRecord::Base
+ class Player < ActiveRecord::Base
   include Blocking
   include Actions
   include MetaExtensions

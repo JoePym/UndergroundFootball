@@ -2,6 +2,11 @@ Dungeonbowl::Application.routes.draw do
   devise_for :users
   
   resource :dungeons
+  resources :games do
+    member do
+      post :recieve_move
+    end
+  end
   
   root :to => "dungeons#index"
 

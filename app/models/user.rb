@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   
   has_many :teams
   after_create :setup_team
+  has_many :games
   
   def setup_team
     orc_team = self.teams.new(:race_id => 57, :apothecary => true, :rerolls => 4, :name => "Green n Meen")

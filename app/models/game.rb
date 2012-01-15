@@ -1,7 +1,7 @@
 class Game < ActiveRecord::Base
-  has_many :teams
   has_many :actions
-  has_many :statuses
+  has_many :statuses, :dependent => :destroy
+  belongs_to :user
   
   def setup(home, away)
     self.home_rerolls = home.rerolls
@@ -12,8 +12,9 @@ class Game < ActiveRecord::Base
     #     self.away_fans = self.roll + self.roll + away.fan_factor
     self.home_apothecaries = home.apothecary ? 1 : 0
     self.away_apothecaries = away.apothecary ? 1 : 0
-    home.player_ids.each{|player_id| self.statuses.create(:player_id => player_id, :status => :reserve)}
-    away.player_ids.each{|player_id| self.statuses.create(:player_id => player_id, :status => :reserve)}
+    (home.player_ids + away.player_ids).each do |player_id|
+       self.statuses.create(:player_id => player_id, :status => :reserve)
+    end
     self.save
   end
   
@@ -30,6 +31,10 @@ class Game < ActiveRecord::Base
     get_tackle_zones(player.team, player.square)
   end
   
+  def set_prone(player)
+
+  end
+
   def opposing_team(player)
     if home.player_ids.include?(player.id)
       away_team

@@ -1,10 +1,9 @@
-#pitch
-  - 15.times do |row_index|
-    .cell.leftBackline{:class => "#{'sideline' if [3,10].include?(row_index)}"}
-    - 11.times do
-      .cell{:class => "#{'sideline' if [3,10].include?(row_index)}"}
-    .cell.los.left{:class => "#{'sideline' if [3,10].include?(row_index)}"}
-    .cell.los.right{:class => "#{'sideline' if [3,10].include?(row_index)}"}
-    - 11.times do
-      .cell{:class => "#{'sideline' if [3,10].include?(row_index)}"}
-    .cell.rightBackline{:class => "#{'sideline' if [3,10].include?(row_index)}"}
+#gameInfo{"data-id" => @game.id}
+= render :partial => "shared/dungeon", :locals => {:dungeon => @dungeon, :game => @game}
+.playerList
+  - @team.players.each do |player|
+    .red.player{'data-id' => player.status.id}
+      %p P
+  - @second_team.players.each do |player|
+    .blue.player{'data-id' => player.status.id}
+      %p P

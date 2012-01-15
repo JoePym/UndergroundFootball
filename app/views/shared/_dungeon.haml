@@ -1,0 +1,5 @@
+.dungeon{:style => "width: #{(dungeon.max_x+1)*32}px; height: #{(dungeon.max_y+1)*32}px"}
+  - dungeon.tiles.each do |t|
+    .tile{:style => "top: #{t.y*32}px; left: #{t.x*32}px", "data-id"=> t.id}
+      - if t.status
+        = render :partial => "shared/player", :object => t.status
