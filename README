@@ -4,7 +4,11 @@ This is a project I created to experiment with. It's not a functional app by any
 
 The main meat of the project so far is in lib and models. The basic idea is that when you instantiate a Player class, it makes a database query to retrieve his skills, and requires modules based on those skills in. In speed testing, for instantiating a single class, it provides around a 100% slowdown (so taking twice as long to instantiate due to the requires and DB call).
 
-Obviously, when using a method like this, it will be important to reduce instantiations of models (so using SQL queries where appropriate), and I may end up re-doing this as Sinatra, or some method that doesn't involve AR. I also don't like my extensions to Module. They make everything a lot cleaner (outside the extensions!), but they allow for quite a lot of variety.
+This method is being used, because skills in Bloodbowl stack on top of each other, and interact with each other in very complicated ways, whereas the core game mechanics are very simple. Current clients all use a mass of conditional statements inside the code to dictate what skills are being used when, whereas my method should allow for better encapsulation and testing, as requiring the module in can then re-write the methods associated with that player. 
 
-The entire lib/model structure works..so you can instantiate a player, add skills to him and he uses those skills appropriately. The next stage of the project is to knock up a UI for it, in order to test how those skills work. 
+For example, a dodge requires a rand(6) + 1 + Agility (stat) roll to be greater than or equal to 6. The Dodge skill allows you to reroll the skill, hence, if a player has Dodge, the implementation of the method "dodge" is overridden with one that takes the roll, and rerolls it if it fails, while storing the fact that the skill cannot be used again this instantiation.
+
+Obviously, when using a method like this, it will be important to ensure that speed of instantiation doesn't become a big issue. I don't think these should be, as at any one time, there are only a maximum of 22 players on the pitch, meaning that you will not be instantiating more than 22 models.
+
+The entire lib/model structure works..so you can instantiate a player, add skills to him and he uses those skills appropriately. The next stage of the project is to knock up a UI for it, in order to test how those skills work, given as the experiment appears to have been successful.
 
